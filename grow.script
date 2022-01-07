@@ -1,0 +1,26 @@
+var target =['joesguns'];
+stopRunning = false;
+
+while (!stopRunning) {
+	tprint('Growing ' + target);
+	for (i=0; i<target.length; i++) {
+		//tprint('Growing cash ' + target[i]);
+		stopGrowing = false;
+		while (!stopGrowing) {
+			var moneyAvailable = getServerMoneyAvailable(target[i]);
+			if (moneyAvailable < getServerMaxMoney(target[i])) {
+				var percentageGain = grow(target[i]);
+				var howMuch = moneyAvailable * percentageGain;
+				tprint('Growing earn :$' + howMuch);
+			}
+			else if (moneyAvailable >= getServerMaxMoney(target[i])) {
+				//tprint(target[i] + ' cash maxed out');
+				tprint('Money availabe for ' + target[i] + ' :$' + moneyAvailable);
+				tprint('Max money for ' + target[i] + ' :$' + getServerMaxMoney(target[i]));
+				//stopGrowing = true;
+				sleep(30000);
+			}
+		
+		}
+	}
+}
