@@ -1,4 +1,4 @@
-var target =['joesguns'];
+var target ='joesguns';
 stopRunning = false;
 
 while (!stopRunning) {
