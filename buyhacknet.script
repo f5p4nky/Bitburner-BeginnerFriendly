@@ -28,7 +28,7 @@ while(hacknet.numNodes() < count) {
 	}
 }
 
-tprint('Total Cost for 20 Nodes: ' + totalCost);
+tprint('Total Cost for ' + count + ' hacknet: ' + totalCost);
 totalCost = 0;
 
 for (var i=0; i < count; i++) {
