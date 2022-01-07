@@ -1,0 +1,5 @@
+var target = 'joesguns';
+
+while (true) {
+	weaken(target);
+}
