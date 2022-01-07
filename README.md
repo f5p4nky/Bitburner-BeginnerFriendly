@@ -59,6 +59,7 @@ I currently use 8 scripts for the game as shown above. I constantly changing my 
 
 - Focus clearing 1 faction at a time. Once you bought everything in the faction (Except NeuroFlux Governor), you can proceed with the installation of the augmentation.
 - Buy TOR router so that you can buy the exploit there. Its a time saver, unless you dont mind waiting.
+- We have ```grow.script``` and ```weaken.script```. Run it and let it does it job. Late game the more RAM/Core you have, the more it will benefit.
 
 ## Conclusion
 
