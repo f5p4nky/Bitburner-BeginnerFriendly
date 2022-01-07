@@ -1,0 +1,11 @@
+// Run script in my personal server 
+var myServer ='pserv-';
+var serverCount = 25;
+var target = args[0];
+
+for (i=0; i<serverCount; i++) {
+	if (!fileExists('early-hack-template.script', myServer + i)) {
+		scp('early-hack-template.script', myServer + i);
+	}
+	exec("early-hack-template.script", myServer + i, 3, target);
+}
