@@ -19,7 +19,11 @@ And no. I have not completed the fl1ght.exe milestone yet.
 ## How to get this into your game 
 
 Well its easy. Either you copy paste the whole code and paste it in the game (first you have to create a file first) or, 
-run the wget command to download it straight to the game like this: ```wget fspanky.github```
+run the wget command to download it straight to the game like this: 
+
+```wget https://raw.githubusercontent.com/f5p4nky/Bitburner-BeginnerFriendly/main/README.md readme.txt```
+
+**For the scripts, make sure you view it raw before using the wget command**
 
 ## Info on my NS1 Scripts 
 
