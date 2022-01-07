@@ -1,0 +1,193 @@
+// Which machine to attack
+var target = args[0];
+
+// Zero Port Server
+zeroPortServer = ['n00dles', 'foodnstuff', 'sigma-cosmetics', 'joesguns', 'nectar-net', 'hong-fang-tea', 'harakiri-sushi']; 
+zeroPortCompleted = false;
+
+// One Port Server
+onePortServer = ['neo-net', 'CSEC', 'zer0', 'max-hardware', 'iron-gym']; 
+onePortCompleted = false;
+
+// Two Port Server
+twoPortServer = ['phantasy', 'silver-helix', 'omega-net', 'avmnite-02h', 'the-hub']; 
+twoPortCompleted = false;
+
+// Three Port Server
+threePortServer = ['I.I.I.I', 'netlink', 'rothman-uni', 'summit-uni',  'catalyst', 'rho-construction', 'millenium-fitness']; 
+threePortCompleted = false;
+
+// Four Port Server 
+fourPortServer = ['aevum-police', 'alpha-ent', 'lexo-corp', 'global-pharm', 'unitalife', 'univ-energy'];
+fourPortCompleted = false;
+
+// Five Port Server 
+fivePortServer = ['zb-institute', 'microdyne', 'titan-labs', 'vitalife', 'helios', 'omnia', 'powerhouse-fitness', 'omnitek', 'blade', 'fulcrumtech'];
+fivePortCompleted = false;
+
+// Full cycle set to false
+fullcycle = false;
+
+// Let start hacking
+while (!fullcycle) {
+	var requirement = 0;
+	while (!zeroPortCompleted) {
+		if (requirement < zeroPortServer.length) {
+			for (i=0; i<zeroPortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(zeroPortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(zeroPortServer[i])) {
+					scp('early-hack-template.script', zeroPortServer[i]);
+					nuke(zeroPortServer[i]);
+					exec('early-hack-template.script', zeroPortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(zeroPortServer[i])) {
+					--i; 
+				}
+			}
+		}
+		zeroPortCompleted = true;
+		requirement = 0;
+	}
+	while (!fileExists('BruteSSH.exe', 'home')) {
+		sleep (60000);
+	}
+	while (!onePortCompleted) {
+		if (requirement < onePortServer.length) {
+			for (i=0; i<onePortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(onePortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(onePortServer[i])) {
+					scp('early-hack-template.script', onePortServer[i]);
+					brutessh(onePortServer[i]);
+					nuke(onePortServer[i]);
+					exec('early-hack-template.script', onePortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(onePortServer[i])) {
+					--i;
+				}
+			}
+		}
+		onePortCompleted = true;
+		requirement = 0;
+	}
+	while (!fileExists('FTPCrack.exe', 'home')) {
+		sleep(60000);
+	}
+	while (!twoPortCompleted) {
+		if (requirement < twoPortServer.length) {
+			for (i=0; i < twoPortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(twoPortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(twoPortServer[i])) {
+					scp('early-hack-template.script', twoPortServer[i]);
+					brutessh(twoPortServer[i]);
+					ftpcrack(twoPortServer[i]);
+					nuke(twoPortServer[i]);
+					exec('early-hack-template.script', twoPortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(twoPortServer[i])) {
+					--i;
+				}
+			}
+		}
+		twoPortCompleted = true;
+		requirement = 0;
+	}
+	while (!fileExists('relaySMTP.exe', 'home')) {
+		sleep(60000);
+	}
+	while (!threePortCompleted) {
+		if (requirement < threePortServer.length) {
+			for (i=0; i < threePortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(threePortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(threePortServer[i])) {
+					scp('early-hack-template.script', threePortServer[i]);
+					brutessh(threePortServer[i]);
+					ftpcrack(threePortServer[i]);
+					relaysmtp(threePortServer[i]);
+					nuke(threePortServer[i]);
+					exec('early-hack-template.script', threePortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(threePortServer[i])) {
+					--i;
+				}
+			}
+		}
+		threePortCompleted = true;
+		requirement = 0;
+	}
+	while (!fileExists('HTTPWorm.exe', 'home')) {
+		sleep(60000);	
+	}
+	while (!fourPortCompleted) {
+		if (requirement < fourPortServer.length) {
+			for (i=0; i < fourPortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(fourPortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(fourPortServer[i])) {
+					scp('early-hack-template.script', fourPortServer[i]);
+					brutessh(fourPortServer[i]);
+					ftpcrack(fourPortServer[i]);
+					relaysmtp(fourPortServer[i]);
+					httpworm(fourPortServer[i]);
+					nuke(fourPortServer[i]);
+					exec('early-hack-template.script', fourPortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(fourPortServer[i])) {
+					--i;
+				}
+			}
+		}
+		fourPortCompleted = true;
+		requirement = 0;
+	}
+	while (!fileExists('SQLInject.exe', 'home'))
+	{
+		sleep(60000);
+	}
+	while (!fivePortCompleted) {
+		if (requirement < fivePortServer.length) {
+			for (i=0; i < fivePortServer.length; i++) {
+				var mylevel = getHackingLevel();
+				var ramserver = getServerMaxRam(fivePortServer[i]);
+				var ramcalculation = ramserver / 2.40;
+				var thread = parseInt(ramcalculation);
+				if (mylevel > getServerRequiredHackingLevel(fivePortServer[i])) {
+					scp('early-hack-template.script', fivePortServer[i]);
+					brutessh(fivePortServer[i]);
+					ftpcrack(fivePortServer[i]);
+					relaysmtp(fivePortServer[i]);
+					httpworm(fivePortServer[i]);
+					sqlinject(fivePortServer[i]);
+					nuke(fivePortServer[i]);
+					exec('early-hack-template.script', fivePortServer[i], thread, target);
+					++requirement;
+				}
+				else if (mylevel < getServerRequiredHackingLevel(fivePortServer[i])) {
+					--i;
+				}
+			}
+		}
+		fivePortCompleted = true;
+		requirement = 0;
+	}
+	fullcycle = true;
+}
+alert('Script Complete');
