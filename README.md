@@ -51,7 +51,7 @@ I currently use 8 scripts for the game as shown above. I constantly changing my 
 
 1) Run the ```pawnauto.script``` while passing the argument as n00dles, so that the script will hack n00dles first. Do not need thread for this script.
 2) Once your hacking level hit >= 10, stop any script that is running and re-run ```pawnauto.script``` but this time pass the argument as joesguns. Now just let the game play by itself.
-3) Run the ```purchase-server.script```. This will buy all the 8GB Server for you the moment you have money for it. 
+3) Run the ```purchase-server.script``` while passing the arguments as joesguns. This will buy all the 8GB Server for you the moment you have money for it, send the ```early-hack-template.script``` to your pserv, and hack joesguns. 
 4) Create a program such like ```BruteSSH.exe``` or ```FTPCrack.exe``` once its available to you so that you can progress in the game. 
 5) Once you ```purchase-server.script``` finish running and you have 25 8GB Servers, you can now run the ```buyhacknet.script``` while passing the the argument number of 10. 10 means = 10 hacknet. The game will buy for you 10 hacknet. For now just start small but once you progress the game, you can buy more than 10.
 
