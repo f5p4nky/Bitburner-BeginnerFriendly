@@ -1,0 +1,79 @@
+var count = args[0];
+
+// Max level for hacknet
+var maxlevel = 199;
+
+// Max ram for hacknet 
+var maxram = 64;
+
+// Max core for hacknet
+var maxcore = 16;
+
+// Just to keep track how much i spend on it
+var totalCost = 0;
+
+function mymoney() {
+	return getServerMoneyAvailable('home');
+}
+
+while(hacknet.numNodes() < count) {
+	if (mymoney() > hacknet.getPurchaseNodeCost()) {
+		res = hacknet.purchaseNode();
+		print('Purchase hacknet node with index ' + res);
+		totalCost += hacknet.getPurchaseNodeCost();
+	} 
+	else if	(mymoney() < hacknet.getPurchaseNodeCost()) {
+			print('Not enough money');
+			sleep(60000);
+	}
+}
+
+tprint('Total Cost for 20 Nodes: ' + totalCost);
+totalCost = 0;
+
+for (var i=0; i < count; i++) {
+	while (hacknet.getNodeStats(i).level <= maxlevel) {
+		//var mymoney = getServerMoneyAvailable('home');
+		var cost = hacknet.getLevelUpgradeCost(i, 1);
+		while (mymoney() < cost) {
+			print('Not enough money to upgrade level: ' + hacknet.getNodeStats(i).name);
+			sleep(3000);
+		}	
+		res = hacknet.upgradeLevel(i, 1);
+		totalCost += cost;
+	}
+}
+
+tprint('Total Cost for Level Upgrade: ' + totalCost);
+totalCost = 0;
+
+for (var i=0; i < count; i++) {
+	while (hacknet.getNodeStats(i).ram < maxram) {
+		//var mymoney = getServerMoneyAvailable('home');
+		var cost = hacknet.getRamUpgradeCost(i, 1);
+		while (mymoney() < cost) {
+			print('Not enough money to upgrade ram: ' + hacknet.getNodeStats(i).name);
+			sleep(3000);
+		}
+		res = hacknet.upgradeRam(i, 1);
+		totalCost += cost;
+	}
+}
+
+tprint('Total Cost for Ram Upgrade: ' + totalCost);
+totalCost = 0;
+
+for (var i=0; i < count; i++) {
+	while (hacknet.getNodeStats(i).cores < maxcore) {
+		//var mymoney = getServerMoneyAvailable('home');
+		var cost = hacknet.getCoreUpgradeCost(i, 1);
+		while (mymoney() < cost) {
+			print('Not enough money to upgrade core: ' + hacknet.getNodeStats(i).name);
+			sleep(3000);
+		}
+		res = hacknet.upgradeCore(i, 1);
+		totalCost += cost;
+	}
+}
+
+tprint('Total Cost for Core Upgrade: ' + totalCost);
