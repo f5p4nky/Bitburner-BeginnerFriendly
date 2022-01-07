@@ -1,0 +1,24 @@
+// Zero Port Server
+zeroPortServer = ['n00dles', 'foodnstuff', 'sigma-cosmetics', 'joesguns', 'nectar-net', 'hong-fang-tea', 'harakiri-sushi']; 
+
+// One Port Server
+onePortServer = ['neo-net', 'CSEC', 'zer0', 'max-hardware', 'iron-gym']; 
+
+// Two Port Server
+twoPortServer = ['phantasy', 'silver-helix', 'avmnite-02h', 'omega-net', 'the-hub']; 
+
+// Three Port Server
+threePortServer = ['I.I.I.I', 'rothman-uni', 'netlink', 'summit-uni',  'catalyst', 'rho-construction', 'millenium-fitness']; 
+
+// Four Port Server 
+fourPortServer = ['aevum-police', '.', 'run4theh111z', 'alpha-ent', 'lexo-corp', 'snap-fitness', 'unitalife', 'global-pharm', 'univ-energy'];
+
+// Five Port Server 
+fivePortServer = ['zb-institute', 'microdyne', 'titan-labs', 'vitalife', 'helios', 'omnia', 'powerhouse-fitness', 'omnitek', 'blade', 'fulcrumtech']
+
+// Combine all into one
+combineServer = [].concat(zeroPortServer, onePortServer, twoPortServer, threePortServer, fourPortServer, fivePortServer); 
+
+for (i=0; i<combineServer.length; i++) {
+	tprint(combineServer[i] + ' hacking level: ' + getServerRequiredHackingLevel(combineServer[i]))
+}
